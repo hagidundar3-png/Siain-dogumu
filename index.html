@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>İyi ki Doğdun Twinim! 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--b:#00f0ff;--p:#9d4edd;--k:#ff007f;--g:#ffd700}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0a12 radial-gradient(circle at 10% 10%,rgba(0,240,255,.15),transparent 40%),radial-gradient(circle at 90% 90%,rgba(157,78,221,.2),transparent 40%);background-attachment:fixed;color:#f0f4f8;font-family:Outfit,system-ui,sans-serif;text-align:center}
+body.lock{overflow:hidden;height:100vh}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+#gate{position:fixed;inset:0;background:rgba(6,7,15,.97);z-index:5000;display:flex;align-items:center;justify-content:center;padding:18px}
+#gate.off{display:none}
+.m{border:3px solid var(--b);border-radius:24px;max-width:560px;padding:28px 20px;background:#12142a;box-shadow:0 0 35px rgba(0,240,255,.4)}
+.badge{display:inline-block;background:linear-gradient(90deg,#f05,#f50);font-family:'Press Start 2P',cursive;font-size:9px;padding:9px 13px;border-radius:30px;margin-bottom:14px;line-height:1.5}
+h2{font-size:24px;font-weight:900;margin:8px 0}
+.w{background:rgba(255,255,255,.06);border-left:4px solid var(--p);padding:12px;border-radius:12px;margin:12px 0 18px;font-size:14px;line-height:1.5}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.opts{grid-template-columns:1fr}}
+.g{background:#1a1e38;border:2px solid rgba(255,255,255,.2);border-radius:18px;padding:20px 10px;color:#fff;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:6px;align-items:center}
+.g:active{transform:scale(.96);border-color:var(--b)}
+.g i{font-style:normal;font-size:40px}.g b{font-size:18px}.g small{color:var(--b)}
+.wrap{max-width:860px;margin:0 auto;padding:18px}
+.ttl{font-family:'Press Start 2P',cursive;font-size:19px;line-height:1.5;color:var(--b);text-shadow:0 0 12px var(--b),0 0 25px var(--p);margin:22px 0 10px}
+.card{background:rgba(20,22,38,.9);border:1px solid rgba(157,78,221,.35);border-radius:22px;padding:24px 16px;margin:22px 0}
+.card h3{font-size:21px;font-weight:900;margin-bottom:6px}.card p.d{font-size:14px;color:#90a4ae;margin-bottom:16px}
+.bar{border:2px dashed var(--b);border-radius:14px;padding:13px;margin:16px 0;background:rgba(0,240,255,.08);font-weight:700}
+.bar b{color:var(--g)}
+.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tg div{background:rgba(0,0,0,.4);border:1px solid rgba(0,240,255,.25);border-radius:12px;padding:12px 4px}
+.tg span{display:block;font-family:'Press Start 2P',cursive;font-size:16px;color:var(--b);margin-bottom:6px}.tg small{font-size:11px;color:#78909c}
+.btn{background:linear-gradient(135deg,var(--b),#07f);color:#000;font:800 14px Outfit,sans-serif;padding:13px 20px;border:0;border-radius:40px;cursor:pointer;margin:5px;text-decoration:none;display:inline-block}
+.btn.p{background:linear-gradient(135deg,var(--p),var(--k));color:#fff}
+.cake{position:relative;width:220px;height:190px;margin:0 auto 18px}
+.t{position:absolute;left:50%;transform:translateX(-50%);border-radius:12px;font-family:'Press Start 2P',cursive;font-size:8px;color:var(--b);padding-top:16px;box-shadow:0 6px 0 rgba(0,0,0,.3)}
+.t1{bottom:0;width:200px;height:62px;background:#1f2438;border:3px solid #3d4668}
+.t2{bottom:56px;width:150px;height:52px;background:#2b1f38;border:3px solid #583d68}
+.t3{bottom:102px;width:100px;height:46px;background:#1f3538;border:3px solid #3d6468}
+.cs{position:absolute;top:2px;left:50%;transform:translateX(-50%);display:flex;gap:16px;z-index:2}
+.c{width:11px;height:32px;background:linear-gradient(90deg,var(--b),#fff);border-radius:3px;position:relative;cursor:pointer}
+.c:before{content:"";position:absolute;inset:-12px -10px}
+.f{position:absolute;top:-17px;left:50%;margin-left:-6px;width:12px;height:17px;background:radial-gradient(ellipse at bottom,#fff,#ff9d00 50%,red);border-radius:50% 50% 20% 20%;box-shadow:0 0 10px #ff9d00,0 0 20px red;animation:fl .2s infinite alternate}
+.f.o{display:none}
+@keyframes fl{to{transform:scale(1.12) rotate(3deg)}}
+.bx{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:600px){.bx{grid-template-columns:1fr}}
+.x{background:#0c0e1c;border:2px dashed rgba(255,255,255,.25);border-radius:18px;padding:22px 12px;cursor:pointer}
+.x:active{border-color:var(--k)}.x i{font-style:normal;font-size:46px;display:block}.x b{display:block;margin:6px 0}.x em{font-style:normal;color:var(--b);font-size:13px;font-weight:700}
+#arena{position:relative;height:260px;background:#0c0e1c;border:2px solid var(--p);border-radius:16px;overflow:hidden;touch-action:manipulation}
+#arena span{position:absolute;font-size:34px;cursor:pointer;user-select:none}
+.big{font-family:'Press Start 2P',cursive;font-size:26px;color:var(--g);margin:10px 0}
+.msg{line-height:1.7;font-size:16px;max-width:520px;margin:0 auto}
+#toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,120px);background:#0f1220;border:2px solid var(--b);padding:13px 20px;border-radius:14px;font-weight:700;z-index:10000;transition:.4s;max-width:90%}
+#toast.s{transform:translate(-50%,0)}
+.wrap{position:relative;z-index:2}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+.fl{position:fixed;top:-40px;opacity:.45;pointer-events:none;z-index:1;animation:dn linear infinite}
+@keyframes dn{to{transform:translateY(112vh) rotate(360deg)}}
+.sp{position:fixed;pointer-events:none;z-index:9998;font-size:16px;animation:sp .8s forwards}
+@keyframes sp{to{opacity:0;transform:translateY(24px) scale(.3)}}
+.qo{display:block;width:100%;margin:8px 0;background:#1a1e38;border:2px solid rgba(255,255,255,.2);color:#fff;font:inherit;padding:13px;border-radius:14px;cursor:pointer}
+.qo:active{border-color:var(--b)}
+#qq{font-weight:800;font-size:18px;margin-bottom:8px}#qr{min-height:24px;color:var(--g);font-weight:700;margin-top:8px}
+.ttl span{display:inline-block;animation:wv 1.6s ease-in-out infinite}
+@keyframes wv{50%{transform:translateY(-6px)}}
+.glow{animation:gl 2s infinite alternate}@keyframes gl{to{box-shadow:0 0 30px var(--k)}}
+#wh{max-width:100%;height:auto}.wp{font-size:30px;margin-bottom:-16px;position:relative;z-index:2}
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:340px;margin:0 auto}
+.mc{aspect-ratio:1;background:#1a1e38;border:2px solid var(--p);border-radius:12px;font-size:30px;color:#fff;cursor:pointer}
+.mc.on{background:#2b1f58;border-color:var(--g)}.mc.ok{border-color:#7dffb0;background:#12382a}
+#gb{font-size:96px;cursor:pointer;display:inline-block;user-select:none}.shk{animation:sk .4s}
+@keyframes sk{25%{transform:rotate(-14deg) scale(1.15)}75%{transform:rotate(14deg) scale(1.15)}}
+.party{animation:hu 5s linear infinite}@keyframes hu{to{filter:hue-rotate(360deg)}}
+#pz{position:relative;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,1fr);gap:2px;width:min(92%,330px);aspect-ratio:480/848;margin:0 auto}
+.pt{background-image:var(--im);background-size:300% 400%;border:2px solid var(--p);border-radius:4px;cursor:pointer}
+.pt.sel{border-color:var(--g);box-shadow:0 0 14px var(--g);transform:scale(.95)}
+</style></head>
+<body class="lock">
+<canvas id="cv"></canvas>
+
+<div id="gate"><div class="m">
+<div class="badge">⚠️ BİRİNİ SEÇMEK ZORUNDASIN!</div>
+<h2>HEDİYE OLARAK NE İSTİYORSUN? 🎁</h2>
+<div class="w">Birini seçmeden aşağı kaydıramazsın! Seçtikten sonra daha çok sürpriz seni bekliyor 😏</div>
+<div class="opts">
+<button class="g" data-v="100 RBX 💎"><i>💎</i><b>100 RBX</b><small>100 Robux</small></button>
+<button class="g" data-v="Özel Doğum Günü Resmi 🎨"><i>🎨</i><b>Özel Resim</b><small>Sana özel doğum günü resmi</small></button>
+</div></div></div>
+
+<div class="wrap">
+<div class="ttl">İYİ Kİ DOĞDUN<br>TWİNİM! 🎉</div>
+<p style="color:#b0bec5;font-weight:700">15 Ekim Doğum Günü Özel Sitesi 🚀</p>
+<div class="bar">🎁 Seçtiğin hediye: <b id="ch">-</b></div>
+<div style="margin:10px 0 18px"><a class="btn p" id="mail" href="#">📩 Seçimimi gönder</a><div style="font-size:12px;color:#78909c">Basınca mail uygulaman açılır, sadece "gönder"e bas</div></div>
+
+<div class="card"><h3>⏳ Doğum Gününe Kalan</h3><p class="d" id="cdn"></p>
+<div class="tg"><div><span id="d">0</span><small>GÜN</small></div><div><span id="h">0</span><small>SAAT</small></div><div><span id="mi">0</span><small>DAKİKA</small></div><div><span id="s">0</span><small>SANİYE</small></div></div></div>
+
+<div class="card"><h3>🎂 Pasta & Mumlar</h3><p class="d">Mumlara dokun ya da butonları kullan</p>
+<div class="cake"><div class="cs"><div class="c"><div class="f"></div></div><div class="c"><div class="f"></div></div><div class="c"><div class="f"></div></div></div>
+<div class="t t3">15 EKİM</div><div class="t t2">TWİNİM</div><div class="t t1">HAPPY B-DAY</div></div>
+<button class="btn" id="blow">🌬️ Mumları Üfle</button><button class="btn p" id="lit">🕯️ Yak</button><button class="btn" id="cf">🎉 KONFETİ!</button><button class="btn p" id="mus">🎵 8-Bit Müzik</button>
+<p class="d" id="wish" style="margin-top:14px;color:var(--g);min-height:20px"></p></div>
+
+<div class="card"><h3>🎮 Hediye Yakala!</h3><p class="d">15 saniyede kaç hediye yakalayabilirsin?</p>
+<div class="big" id="sc">0</div><div id="arena"></div>
+<button class="btn p" id="play" style="margin-top:12px">▶ Başla</button><p class="d" id="rec" style="margin-top:8px"></p></div>
+
+<div class="card"><h3>🎡 Şans Çarkı</h3><p class="d">Çevir bakalım ne çıkacak!</p>
+<div class="wp">🔻</div><canvas id="wh" style="position:static;width:300px;height:300px;z-index:auto;pointer-events:auto"></canvas>
+<div class="big" id="wr" style="font-size:15px;min-height:24px;line-height:1.5"></div><button class="btn p" id="ws">🎡 ÇEVİR</button></div>
+
+<div class="card"><h3>🃏 Hafıza Oyunu</h3><p class="d">Eş kartları bul! Hamle: <b id="mvs">0</b></p><div class="mg" id="mg"></div></div>
+
+<div class="card"><h3>🧩 Bulmaca</h3><p class="d">Parçalara dokunup yer değiştir, resmi tamamla! Hamle: <b id="pmv">0</b></p>
+<div id="pz"></div><p class="big" id="pm" style="font-size:13px;line-height:1.7;margin:14px 0 6px"></p>
+<button class="btn" id="ph">👀 İpucu</button><button class="btn p" id="pn">🔀 Yeniden Karıştır</button></div>
+
+<div class="card"><h3>🎁 Sürpriz Kutular</h3><p class="d">Kutulara dokun!</p>
+<div class="bx">
+<div class="x" data-t="🏅 Efsanevi Twin Rozeti!"><i>📦</i><b>Kutu 1</b><em></em></div>
+<div class="x" data-t="👑 Ömür Boyu Kardeşlik VIP!"><i>🎁</i><b>Kutu 2</b><em></em></div>
+<div class="x" data-t="🔥 Dünyanın En Havalı Twin'i Unvanı!"><i>💎</i><b>Kutu 3</b><em></em></div></div></div>
+
+<div class="card"><h3>👯 Twin Uyum Ölçer</h3><p class="d">İkimizin uyumu kaç?</p>
+<div class="big" id="pc">?</div><button class="btn p" id="meas">📡 Ölç</button></div>
+
+<div class="card"><h3>🧠 Beni Ne Kadar Tanıyorsun?</h3><p class="d">3 soru, yanlış cevap yok 😏</p>
+<div id="qq"></div><div id="qa"></div><div id="qr"></div></div>
+
+<div class="card"><h3>💌 Sana Mesajım</h3>
+<p class="msg">Hayatımın en iyi oyun arkadaşı, en yakın dostum, kankam… İyi ki varsın, iyi ki ikizimsin! Yeni yaşında bol gülmek, bol oyun, bol hediye ve hep mutlu olmak diliyorum. Seni çok seviyorum! 💖</p>
+<button class="btn" id="cf2" style="margin-top:16px">🎆 Havai Fişek!</button></div>
+
+<div class="card"><h3>🎁 SON SÜRPRİZ</h3><p class="d" id="gc">Kutuya 5 kez dokun!</p>
+<div id="gb">🎁</div><p class="msg" id="gm" style="margin-top:14px;min-height:60px;color:var(--g);font-weight:700"></p></div>
+
+<div class="card glow"><h3>🥹 Beğendin mi?</h3><p class="d">Bu siteyi senin için saatlerce uğraşıp yaptım…</p>
+<a class="btn p" id="thx" href="#">💌 Bana Teşekkür Et</a><div style="font-size:12px;color:#78909c;margin-top:6px">Önce yukarıdan hediyeni seçmiş olmalısın 😉</div></div>
+
+<footer style="padding:20px;color:#607d8b;font-size:13px">Twinim için yapıldı | 15 Ekim 🎈</footer>
+</div>
+<div id="toast"></div>
+
+<script>
+(function(){
+var OWNER_EMAIL="hagidundar3@gmail.com";
+var $=function(i){return document.getElementById(i)};
+var cv=$('cv'),cx=cv.getContext('2d'),P=[],run=false;
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener('resize',rs);
+var C=['#00f0ff','#ff007f','#ffd700','#9d4edd','#7dffb0','#ff8a5f'];
+function burst(n){for(var i=0;i<n;i++)P.push({x:Math.random()*cv.width,y:-20-Math.random()*cv.height*.5,vx:(Math.random()-.5)*4,vy:2+Math.random()*4,s:6+Math.random()*7,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:C[i%6]});if(!run){run=true;requestAnimationFrame(tk)}}
+function tk(){cx.clearRect(0,0,cv.width,cv.height);P=P.filter(function(p){return p.y<cv.height+30});
+P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.03;p.r+=p.vr;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.shadowBlur=p.n?14:0;cx.shadowColor=p.c;cx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);cx.restore()});
+if(P.length)requestAnimationFrame(tk);else{run=false;cx.clearRect(0,0,cv.width,cv.height)}}
+function fw(){var k=0,t=setInterval(function(){burst(70);if(++k>4)clearInterval(t)},350)}
+var tt;function toast(m){var e=$('toast');e.textContent=m;e.className='s';clearTimeout(tt);tt=setTimeout(function(){e.className=''},2600)}
+
+// hediye seçimi
+var gs=document.querySelectorAll('.g');
+gs.forEach(function(b){b.onclick=function(){var v=b.getAttribute('data-v');
+$('gate').className='off';document.body.className='';$('ch').textContent=v;
+$('mail').href='mailto:'+OWNER_EMAIL+'?subject='+encodeURIComponent('Doğum günü hediye seçimi 🎁')+'&body='+encodeURIComponent('Hediye olarak şunu seçtim: '+v);
+burst(220);toast('Seçimin kaydedildi! Aşağıda daha çok şey var 😏');scrollTo(0,0)}});
+setTimeout(function(){burst(90)},500);
+
+// geri sayım
+var now=new Date(),tg=new Date(now.getFullYear(),9,15);
+if(now>new Date(now.getFullYear(),9,16))tg=new Date(now.getFullYear()+1,9,15);
+function cd(){var n=new Date(),df=tg-n;
+if(n.getMonth()==9&&n.getDate()==15){$('cdn').textContent='BUGÜN SENİN GÜNÜN! 🎉';df=0}
+else $('cdn').textContent='15 Ekim '+tg.getFullYear();
+if(df<0)df=0;$('d').textContent=Math.floor(df/864e5);$('h').textContent=Math.floor(df/36e5)%24;$('mi').textContent=Math.floor(df/6e4)%60;$('s').textContent=Math.floor(df/1e3)%60}
+cd();setInterval(cd,1000);
+
+// mumlar
+var fl=document.querySelectorAll('.f');
+document.querySelectorAll('.c').forEach(function(c,i){c.onclick=function(){fl[i].classList.toggle('o');chk()}});
+function chk(){var all=[].every.call(fl,function(f){return f.classList.contains('o')});
+$('wish').textContent=all?'✨ Dilek tut! Dileğin kabul oldu ✨':'';if(all)burst(150)}
+$('blow').onclick=function(){fl.forEach(function(f){f.classList.add('o')});chk()};
+$('lit').onclick=function(){fl.forEach(function(f){f.classList.remove('o')});$('wish').textContent=''};
+$('cf').onclick=function(){burst(200)};$('cf2').onclick=fw;
+
+// müzik (Happy Birthday, 8-bit)
+var ac,pl=false,tm;
+var N=[[262,.5],[262,.25],[294,1],[262,1],[349,1],[330,2],[262,.5],[262,.25],[294,1],[262,1],[392,1],[349,2],[262,.5],[262,.25],[523,1],[440,1],[349,1],[330,1],[294,2],[466,.5],[466,.25],[440,1],[349,1],[392,1],[349,2]];
+function melody(){if(!pl)return;var t=ac.currentTime+.05;
+N.forEach(function(n){var o=ac.createOscillator(),g=ac.createGain();o.type='square';o.frequency.value=n[0];g.gain.setValueAtTime(.06,t);g.gain.exponentialRampToValueAtTime(.001,t+n[1]*.42);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+n[1]*.42);t+=n[1]*.45});
+tm=setTimeout(melody,(t-ac.currentTime)*1000+800)}
+$('mus').onclick=function(){if(!ac)ac=new (window.AudioContext||window.webkitAudioContext)();
+pl=!pl;$('mus').textContent=pl?'⏹ Müziği Durdur':'🎵 8-Bit Müzik';if(pl){ac.resume();melody()}else clearTimeout(tm)};
+
+// oyun
+var sc=0,on=false,sp,en,ar=$('arena');
+var best=0;
+function spawn(){if(!on)return;var e=document.createElement('span');e.textContent=['🎁','💎','🎈','⭐','🎂'][Math.floor(Math.random()*5)];
+e.style.left=Math.random()*(ar.clientWidth-44)+'px';e.style.top=Math.random()*(ar.clientHeight-44)+'px';
+e.onpointerdown=function(){if(!on)return;sc++;$('sc').textContent=sc;e.remove()};
+ar.appendChild(e);setTimeout(function(){e.remove()},900)}
+$('play').onclick=function(){if(on)return;sc=0;on=true;$('sc').textContent=0;ar.innerHTML='';$('rec').textContent='';
+sp=setInterval(spawn,450);en=setTimeout(function(){on=false;clearInterval(sp);ar.innerHTML='';
+if(sc>best)best=sc;$('rec').textContent='Süre bitti! Skorun: '+sc+' | Rekorun: '+best;burst(100)},15000)};
+
+// kutular
+document.querySelectorAll('.x').forEach(function(x){x.onclick=function(){x.querySelector('em').textContent=x.getAttribute('data-t');x.querySelector('i').textContent='✨';burst(80)}});
+
+// uyum
+$('meas').onclick=function(){var n=0,t=setInterval(function(){n+=Math.floor(Math.random()*30)+10;if(n>=100){n=100;clearInterval(t);burst(150);toast('Sonuç: %100! Kopya ikiz 👯')}$('pc').textContent='%'+n},120)};
+
+// teşekkür maili
+var chosen='';
+gs.forEach(function(b){b.addEventListener('click',function(){chosen=b.getAttribute('data-v');
+$('thx').href='mailto:'+OWNER_EMAIL+'?subject='+encodeURIComponent('Teşekkürler! 💖')+'&body='+encodeURIComponent('Siteyi çok sevdim, teşekkürler kardeşim! 🥹 Seçtiğim hediye: '+chosen)})});
+
+// düşen emojiler
+['🎈','⭐','🎁','💎','🎂','✨','🎮'].forEach(function(e,i){for(var k=0;k<2;k++){var d=document.createElement('div');d.className='fl';d.textContent=e;
+d.style.left=Math.random()*96+'%';d.style.fontSize=(18+Math.random()*16)+'px';d.style.animationDuration=(9+Math.random()*10)+'s';d.style.animationDelay=(-Math.random()*15)+'s';document.body.appendChild(d)}});
+
+// ışıltı izi
+var lt=0;addEventListener('pointermove',function(e){var n=Date.now();if(n-lt<70)return;lt=n;var s=document.createElement('div');s.className='sp';s.textContent=['✨','⭐','💫'][Math.floor(Math.random()*3)];s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';document.body.appendChild(s);setTimeout(function(){s.remove()},800)});
+
+// başlık
+var tl=document.querySelector('.ttl');
+
+// kaydırınca belirme
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.15});
+document.querySelectorAll('.card,.bar').forEach(function(c){c.classList.add('rv');io.observe(c)});
+
+// quiz
+var Q=[{q:'Dünyanın en iyi ikizi kim?',a:[['Sen 😎','Doğru! Zaten biliyordum 😌'],['Ben 😏','Cesur cevap! Neyse, kabul 😂']]},
+{q:'Birlikte en çok ne yaparız?',a:[['Oyun oynarız 🎮','Efsane ikili! 🔥'],['Gülmekten ölürüz 😂','Karnım ağrıyana kadar!']]},
+{q:'Bu yıl hediye alırsan ne olur?',a:[['Çok mutlu olurum 🥳','Zaten amacım buydu!'],['Beni mutlu etmeye çalışma 😤','Çok geç, mutlu oldun bile 😎']]}];
+var qi=0;
+function showQ(){var q=Q[qi];$('qq').textContent=q.q;$('qr').textContent='';var h=$('qa');h.innerHTML='';
+q.a.forEach(function(a){var b=document.createElement('button');b.className='qo';b.textContent=a[0];
+b.onclick=function(){h.innerHTML='';$('qr').textContent=a[1];burst(50);setTimeout(function(){qi++;if(qi<Q.length)showQ();else{$('qq').textContent='🏆 Sonuç: EFSANE İKİZ!';$('qr').textContent='3/3 doğru, çünkü yanlış cevap yoktu 😂';burst(200)}},1500)};h.appendChild(b)})}
+showQ();
+
+// ===== isim, çark, hafıza, son sürpriz =====
+var nm='TWİNİM';
+function wv(t){return t.split('<br>').map(function(l){return Array.from(l).map(function(c,i){return c==' '?' ':'<span style="animation-delay:'+(i*.08)+'s">'+c+'</span>'}).join('')}).join('<br>')}
+tl.innerHTML=wv('İYİ Kİ DOĞDUN<br>TWİNİM! 🎉');
+gs.forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-v');
+$('mail').href='mailto:'+OWNER_EMAIL+'?subject='+encodeURIComponent(nm+' hediyesini seçti 🎁')+'&body='+encodeUR
